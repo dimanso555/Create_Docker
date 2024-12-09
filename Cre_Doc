@@ -1,0 +1,25 @@
+#!groovy
+// Check ub1 properties
+properties([disableConcurrentBuilds()])
+
+pipeline {
+   agent any
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        timestamps()
+    }
+    stages {
+        stage("First step") {
+            steps {
+                sh 'ssh root@172.31.211.227 docker run -p 8089:80 -v /mnt/c/Users/Dima/desktop/docker/nginx:/usr/share/nginx/html\
+                                           -d --name Main_WebSite \
+                                             nginx'
+            }
+        }
+        stage("Second step") {
+            steps {
+                sh 'ssh root@172.31.211.227 docker exec -it Main_WebSite bash'
+            }
+        }
+    }
+}
