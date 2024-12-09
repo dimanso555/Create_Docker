@@ -18,7 +18,7 @@ pipeline {
         }
         stage("Second step") {
             steps {
-                sh 'ssh -t root@172.31.211.227 docker exec -it Main_WebSite bash'
+                sh 'ssh -tt root@172.31.211.227 docker exec -it Main_WebSite bash'
             }
         }
     }
