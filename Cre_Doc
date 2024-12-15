@@ -14,12 +14,12 @@ pipeline {
                 sh 'ssh root@172.31.211.227 docker run -p 8089:80 -v /mnt/c/Users/Dima/desktop/web_site python:/usr/share/nginx/html\
                                            -d --name Main_WebSite \
                                              nginx'
+           } 
+        }        
+         stage("Second step")  {
+             steps {
+                sh 'ssh -tt root@172.31.211.227 docker exec -it Main_WebSite bash'
             }
-        }
-        // stage("Second step") // {
-            // steps {
-               // sh 'ssh -tt root@172.31.211.227 docker exec -it Main_WebSite bash'
-            }
-        // }
+         }
     }
 }
