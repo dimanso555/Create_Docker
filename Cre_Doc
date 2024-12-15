@@ -16,10 +16,10 @@ pipeline {
                                              nginx'
             }
         }
-        // stage("Second step") {
+        // stage("Second step") // {
             // steps {
                // sh 'ssh -tt root@172.31.211.227 docker exec -it Main_WebSite bash'
             }
-        }
+        // }
     }
 }
