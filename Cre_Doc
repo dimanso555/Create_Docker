@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage("First step") {
             steps {
-                sh 'ssh root@172.31.211.227 docker run -p 8089:80 -v /mnt/c/Users/Dima/desktop/web_site python:/usr/share/nginx/html\
+                sh 'ssh root@172.31.211.227 docker run -p 8089:80 -v /mnt/c/Users/Dima/desktop/websit:/usr/share/nginx/html\
                                            -d --name main_website \
                                              nginx'
            } 
